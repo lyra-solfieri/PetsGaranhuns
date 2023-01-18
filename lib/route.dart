@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:passaros_nordeste/constants.dart';
+import 'package:passaros_nordeste/screens/cadastro/cadastrar_passaro.dart';
 import 'package:passaros_nordeste/screens/main_menu/main_menu.dart';
 
 class Rotas {
@@ -10,21 +11,10 @@ class Rotas {
           builder: (_) => const MainMenu(),
         );
 
-      // case categoryRoute:
-      //   var category = settings.arguments as DesignPatternCategory;
-      //   return MaterialPageRoute(
-      //     builder: (_) => Category(
-      //       category: category,
-      //     ),
-      //   );
-      // case _DesignPatternRoutes.introductionRoute:
-      //   var designPattern = settings.arguments as DesignPattern;
-      //   return MaterialPageRoute(
-      //     builder: (_) => DesignPatternDetails(
-      //       designPattern: designPattern,
-      //       example: Introduction(),
-      //     ),
-      //   );
+      case '/cadastrar_passaro':
+        return MaterialPageRoute(
+          builder: (_) => const CadastraPassaro(),
+        );
 
       default:
         return MaterialPageRoute(
