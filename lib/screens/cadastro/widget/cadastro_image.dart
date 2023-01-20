@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
@@ -11,18 +12,23 @@ class CadastroImage extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<CadastroImage> {
-  File? _image;
+  File? imageFile;
 
-  Future GetImage() async {
-    final image = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
-    );
-    if (image == null) return;
-    final ImageTemporary = File(image.path);
-    setState(() {
-      this;
-      _image;
-    });
+  Future getImage() async {
+    try {
+      final image = await ImagePicker().pickImage(
+        source: ImageSource.gallery,
+      );
+      if (image == null) return;
+
+      final imageTemporary = File(image.path);
+
+      setState(() {
+        imageFile = imageTemporary;
+      });
+    } on PlatformException catch (e) {
+      print('Error to pick image: $e');
+    }
   }
 
   @override
@@ -30,17 +36,30 @@ class _MyWidgetState extends State<CadastroImage> {
     return Center(
       child: Column(
         children: [
-          Image.network(
-              'https://s2.best-wallpaper.net/wallpaper/1920x1440/1801/Two-birds-flying-goldfinch-wings_1920x1440.jpg'),
           const SizedBox(
-            height: 30,
+            height: 10,
+          ),
+          imageFile != null
+              ? Image.file(
+                  imageFile!,
+                  width: 200,
+                  height: 200,
+                  fit: BoxFit.cover,
+                )
+              : Image.network(
+                  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F6d%2F69%2Fed%2F6d69ed03686ba6f8bc3338aac21e5ec2.jpg&f=1&nofb=1&ipt=42a4636fe53aadfd39f8b0e38f4ef9020886ba2e06c74f58383bc05db7995cc0&ipo=images',
+                  width: 250,
+                  height: 250,
+                ),
+          const SizedBox(
+            height: 10,
           ),
           custonButtom(
             title: 'escolhar a imagem',
             icon: Icons.image_outlined,
-            onCLick: () => {},
+            onCLick: getImage,
           ),
-          const Text('Button'),
+          //const Text('Button'),
         ],
       ),
     );
@@ -52,7 +71,7 @@ Widget custonButtom({
   required IconData icon,
   required VoidCallback onCLick,
 }) {
-  return Container(
+  return SizedBox(
     width: 250,
     height: 50,
     child: ElevatedButton(
@@ -60,7 +79,10 @@ Widget custonButtom({
       child: Row(
         children: [
           Icon(icon),
-          Text(title),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+          ),
         ],
       ),
     ),

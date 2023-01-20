@@ -1,9 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:passaros_nordeste/route.dart';
-import 'package:passaros_nordeste/themes.dart';
 
 import 'constants.dart';
+import 'firebase_options.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -21,4 +22,8 @@ class App extends StatelessWidget {
   }
 }
 
-void main() => runApp(const App());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(const App());
+}
