@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CadastroForm extends StatefulWidget {
   const CadastroForm({super.key});
@@ -10,11 +11,15 @@ class CadastroForm extends StatefulWidget {
 class _CadastroFormState extends State<CadastroForm> {
   @override
   Widget build(BuildContext context) {
-    List<String> regions = ['Region 1', 'Region 2', 'Region 3', 'sertão'];
+    List<String> regions = ['Meio-Norte', 'Sertão', 'Agreste', 'Zona da Mata'];
     String? selectedRegion;
 
-    TextEditingController _foodController = TextEditingController();
-    TextEditingController _descriptionController = TextEditingController();
+    const space = SizedBox(height: 15);
+    TextEditingController foodController = TextEditingController();
+    TextEditingController descriptionController = TextEditingController();
+    TextEditingController namePassaroController = TextEditingController();
+    TextEditingController namePessoaController = TextEditingController();
+    TextEditingController cidadePessoaController = TextEditingController();
 
     return SizedBox(
       width: 250,
@@ -27,7 +32,6 @@ class _CadastroFormState extends State<CadastroForm> {
                   const SizedBox(
                     height: 30,
                   ),
-
                   DropdownButtonFormField(
                     hint: const Text('Selecione a região'),
                     decoration: const InputDecoration(
@@ -56,18 +60,115 @@ class _CadastroFormState extends State<CadastroForm> {
                       });
                     },
                   ),
-
-                  //
+                  space,
                   TextFormField(
-                    decoration:
-                        const InputDecoration(labelText: 'Nome do Pássaro'),
+                    controller: namePassaroController,
+                    decoration: InputDecoration(
+                      labelText: 'Nome do Pássaro',
+                      labelStyle: GoogleFonts.acme(
+                        color: const Color.fromRGBO(165, 70, 2, 1),
+                      ),
+                      border: const OutlineInputBorder(),
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Digite o nome do Pássaro";
+                      }
+                      return null;
+                    },
                   ),
+                  space,
                   TextFormField(
-                    decoration: const InputDecoration(labelText: 'Comidas'),
+                    controller: foodController,
+                    decoration: InputDecoration(
+                      labelText: 'Comidas',
+                      labelStyle: GoogleFonts.acme(
+                        color: const Color.fromRGBO(165, 70, 2, 1),
+                      ),
+                      border: const OutlineInputBorder(),
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Digite pelo menos uma comida do pássaro";
+                      }
+                      return null;
+                    },
                   ),
+                  space,
                   TextFormField(
-                    decoration: const InputDecoration(
-                        labelText: 'Descrição do pássaro'),
+                    controller: descriptionController,
+                    decoration: InputDecoration(
+                      labelText: 'Descrição do pássaro',
+                      labelStyle: GoogleFonts.acme(
+                        color: const Color.fromRGBO(165, 70, 2, 1),
+                      ),
+                      border: const OutlineInputBorder(),
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "";
+                      }
+                      return null;
+                    },
+                  ),
+                  space,
+                  TextFormField(
+                    controller: namePessoaController,
+                    decoration: InputDecoration(
+                      labelText: 'Seu Nome',
+                      labelStyle: GoogleFonts.acme(
+                        color: const Color.fromRGBO(165, 70, 2, 1),
+                      ),
+                      border: const OutlineInputBorder(),
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Digite seu nome";
+                      }
+                      return null;
+                    },
+                  ),
+                  space,
+                  TextFormField(
+                    controller: cidadePessoaController,
+                    decoration: InputDecoration(
+                      labelText: 'Sua Cidade',
+                      labelStyle: GoogleFonts.acme(
+                        color: const Color.fromRGBO(165, 70, 2, 1),
+                      ),
+                      border: const OutlineInputBorder(),
+                      focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Digite sua cidade";
+                      }
+                      return null;
+                    },
                   ),
                 ],
               ),

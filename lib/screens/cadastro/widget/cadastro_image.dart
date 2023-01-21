@@ -55,7 +55,7 @@ class _MyWidgetState extends State<CadastroImage> {
             height: 10,
           ),
           custonButtom(
-            title: 'escolhar a imagem',
+            title: 'Escolher a imagem',
             icon: Icons.image_outlined,
             onCLick: getImage,
           ),
@@ -75,8 +75,18 @@ Widget custonButtom({
     width: 250,
     height: 50,
     child: ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        textStyle: TextStyle(),
+        backgroundColor: const Color.fromRGBO(
+          165,
+          70,
+          2,
+          1,
+        ),
+      ),
       onPressed: onCLick,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(icon),
           Text(

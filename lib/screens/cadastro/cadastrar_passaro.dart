@@ -23,20 +23,28 @@ class CadastraPassaro extends StatelessWidget {
         title: const Text('Cadastro de Pássaros'),
       ),
       body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              const CadastroImage(),
-              const CadastroForm(),
-              const SizedBox(
-                height: 40,
+        child: ScrollConfiguration(
+          behavior: const ScrollBehavior(),
+          child: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                children: [
+                  const CadastroImage(),
+                  const CadastroForm(),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  custonButtom(
+                    title: 'Salvar Pássaro',
+                    icon: Icons.save,
+                    onCLick: (() => {}),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  )
+                ],
               ),
-              custonButtom(
-                title: 'Salvar Pássaro',
-                icon: Icons.save,
-                onCLick: (() => {}),
-              )
-            ],
+            ),
           ),
         ),
       ),
