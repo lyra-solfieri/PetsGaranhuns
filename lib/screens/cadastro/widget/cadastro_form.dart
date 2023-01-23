@@ -1,5 +1,7 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:passaros_nordeste/screens/cadastro/widget/cadastro_image.dart';
 
 class CadastroForm extends StatefulWidget {
   const CadastroForm({super.key});
@@ -9,23 +11,24 @@ class CadastroForm extends StatefulWidget {
 }
 
 class _CadastroFormState extends State<CadastroForm> {
+  TextEditingController foodController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+  TextEditingController namePassaroController = TextEditingController();
+  TextEditingController namePessoaController = TextEditingController();
+  TextEditingController cidadePessoaController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     List<String> regions = ['Meio-Norte', 'Sertão', 'Agreste', 'Zona da Mata'];
     String? selectedRegion;
 
     const space = SizedBox(height: 15);
-    TextEditingController foodController = TextEditingController();
-    TextEditingController descriptionController = TextEditingController();
-    TextEditingController namePassaroController = TextEditingController();
-    TextEditingController namePessoaController = TextEditingController();
-    TextEditingController cidadePessoaController = TextEditingController();
 
     return SizedBox(
       width: 250,
       child: Center(
         child: Column(
           children: [
+            const CadastroImage(),
             Form(
               child: Column(
                 children: <Widget>[
@@ -177,5 +180,30 @@ class _CadastroFormState extends State<CadastroForm> {
         ),
       ),
     );
+  }
+
+  void saveData({required}) async {
+    final FirebaseDatabase database = FirebaseDatabase.instance;
+
+    Map<String, dynamic> passaro = {
+      "name": namePassaroController.text,
+      "region": "North",
+      "description": descriptionController.text,
+      "user": {
+        "name": namePessoaController.text,
+        "city": cidadePessoaController.text,
+      },
+      "imageUrl": 'imageUrl'
+    };
+
+    String? passaroId = database.ref().child("passaro").push().key;
+
+    database
+        .ref()
+        .child("passaro")
+        .child(passaroId!)
+        .set(passaro)
+        .then((_) => print("passaro adicionado"))
+        .catchError((error) => print("Error adding bid: $error"));
   }
 }

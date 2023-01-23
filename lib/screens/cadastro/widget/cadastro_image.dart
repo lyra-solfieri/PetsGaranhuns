@@ -1,5 +1,7 @@
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
@@ -64,6 +66,26 @@ class _MyWidgetState extends State<CadastroImage> {
       ),
     );
   }
+
+  Future saveImage({required nameImage}) async {
+    final FirebaseStorage fireFirebaseStorage = FirebaseStorage.instance;
+
+    try {
+      await fireFirebaseStorage
+          // dando um nome pra imagem
+          .ref('$nameImage.jpg')
+          .child('$nameImage')
+          // Upload imagem
+          .putFile(
+            File('$imageFile'),
+            SettableMetadata(contentType: 'image/jpeg'),
+          );
+
+      print("Uploaded image");
+    } on FirebaseException catch (e) {
+      print(e);
+    }
+  }
 }
 
 Widget custonButtom({
@@ -76,7 +98,7 @@ Widget custonButtom({
     height: 50,
     child: ElevatedButton(
       style: ElevatedButton.styleFrom(
-        textStyle: TextStyle(),
+        textStyle: GoogleFonts.acme(),
         backgroundColor: const Color.fromRGBO(
           165,
           70,
