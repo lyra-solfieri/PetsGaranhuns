@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:passaros_nordeste/constants.dart';
 import 'package:passaros_nordeste/screens/cadastro/cadastrar_passaro.dart';
+import 'package:passaros_nordeste/screens/lista_passaros/lista_passaros.dart';
 import 'package:passaros_nordeste/screens/main_menu/main_menu.dart';
 
 class Rotas {
@@ -14,6 +15,11 @@ class Rotas {
       case '/cadastrar_passaro':
         return MaterialPageRoute(
           builder: (_) => const CadastraPassaro(),
+        );
+
+      case '/lista_passaros':
+        return MaterialPageRoute(
+          builder: (_) => const ListaPassaros(),
         );
 
       default:

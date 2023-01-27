@@ -28,7 +28,7 @@ class MainMenu extends StatelessWidget {
                   image:
                       'https://i.pinimg.com/736x/e5/34/2e/e5342e75cf45db799ad90490c8f9a8dc.jpg',
                   text: 'Acessar lista completa dos pássaros',
-                  rota: '',
+                  rota: '/lista_passaros',
                 ),
                 SizedBox(
                   height: 25,

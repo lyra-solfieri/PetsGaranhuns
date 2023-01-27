@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:passaros_nordeste/screens/cadastro/widget/cadastro_form.dart';
-import 'package:passaros_nordeste/screens/cadastro/widget/cadastro_image.dart';
 
 class CadastraPassaro extends StatelessWidget {
   const CadastraPassaro({super.key});
@@ -20,7 +20,10 @@ class CadastraPassaro extends StatelessWidget {
           },
         ),
         centerTitle: true,
-        title: const Text('Cadastro de Pássaros'),
+        title: Text(
+          'Cadastro de Pássaros',
+          style: GoogleFonts.acme(),
+        ),
       ),
       body: SafeArea(
         child: ScrollConfiguration(
@@ -28,18 +31,12 @@ class CadastraPassaro extends StatelessWidget {
           child: SingleChildScrollView(
             child: Center(
               child: Column(
-                children: [
-                  const CadastroImage(),
-                  const CadastroForm(),
-                  const SizedBox(
+                children: const [
+                  CadastroForm(),
+                  SizedBox(
                     height: 40,
                   ),
-                  custonButtom(
-                    title: 'Salvar Pássaro',
-                    icon: Icons.save,
-                    onCLick: (() => {}),
-                  ),
-                  const SizedBox(
+                  SizedBox(
                     height: 30,
                   )
                 ],
