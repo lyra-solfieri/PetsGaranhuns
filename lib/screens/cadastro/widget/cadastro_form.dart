@@ -85,8 +85,8 @@ class _CadastroFormState extends State<CadastroForm> {
                           height: 200,
                           fit: BoxFit.cover,
                         )
-                      : Image.network(
-                          'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F6d%2F69%2Fed%2F6d69ed03686ba6f8bc3338aac21e5ec2.jpg&f=1&nofb=1&ipt=42a4636fe53aadfd39f8b0e38f4ef9020886ba2e06c74f58383bc05db7995cc0&ipo=images',
+                      : Image.asset(
+                          'asset/dog_and_cat1.jpg',
                           width: 250,
                           height: 250,
                         ),
@@ -139,7 +139,7 @@ class _CadastroFormState extends State<CadastroForm> {
                   TextFormField(
                     controller: namePassaroController,
                     decoration: InputDecoration(
-                      labelText: 'Nome do Pássaro',
+                      labelText: 'Nome do Pet',
                       labelStyle: GoogleFonts.acme(
                         color: const Color.fromRGBO(165, 70, 2, 1),
                       ),
@@ -152,7 +152,7 @@ class _CadastroFormState extends State<CadastroForm> {
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Digite o nome do Pássaro";
+                        return "Digite o nome do Animal";
                       }
                       return null;
                     },
@@ -174,7 +174,7 @@ class _CadastroFormState extends State<CadastroForm> {
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Digite pelo menos uma comida do pássaro";
+                        return "Digite pelo menos uma comida";
                       }
                       return null;
                     },
@@ -183,7 +183,7 @@ class _CadastroFormState extends State<CadastroForm> {
                   TextFormField(
                     controller: descriptionController,
                     decoration: InputDecoration(
-                      labelText: 'Descrição do pássaro',
+                      labelText: 'Descrição do Pet',
                       labelStyle: GoogleFonts.acme(
                         color: const Color.fromRGBO(165, 70, 2, 1),
                       ),
@@ -247,7 +247,7 @@ class _CadastroFormState extends State<CadastroForm> {
                   ),
                   space,
                   custonButtom(
-                    title: 'Salvar Pássaro',
+                    title: 'Salvar Pet',
                     icon: Icons.save,
                     onCLick: (() {
                       saveImage(
@@ -268,13 +268,8 @@ class _CadastroFormState extends State<CadastroForm> {
 
   Future saveData() async {
     final FirebaseDatabase database = FirebaseDatabase.instance;
-    //Pegar a url da imagem
-    // var imageRef = fireFirebaseStorage.ref().child(
-    //     'gs://passaros-ec49a.appspot.com/files/${namePassaroController.text}_${namePessoaController.text}');
-    // String imageUrl = await imageRef.getDownloadURL();
-    // print(imageUrl);
 
-    Map<String, dynamic> passaro = {
+    Map<String, dynamic> animalJson = {
       "name": namePassaroController.text,
       "region": selectedRegion.toString(),
       "description": descriptionController.text,
@@ -285,14 +280,24 @@ class _CadastroFormState extends State<CadastroForm> {
       "imageUrl": 'imageUrl',
     };
 
-    String? passaroId = database.ref().child("passaro").push().key;
+    String? passaroId = database.ref().child("animais").push().key;
     database
         .ref()
-        .child("passaro/")
+        .child("pets/")
         .child(passaroId!)
-        .set(passaro)
+        .set(animalJson)
         .then((_) => print("passaro adicionado"))
-        .catchError((error) => print("Error passaro: $error"));
+        .catchError((error) => print("Error animal: $error"));
+
+    // final imageReference = FirebaseStorage.instance.ref().child(
+    //     'file/${namePassaroController.text}_${namePessoaController.text}');
+    // final imageUrl = await imageReference.getDownloadURL();
+
+    // final realtimeReference =
+    //     FirebaseDatabase.instance.ref().child('pets/').child(passaroId);
+    // realtimeReference.set({
+    //   'imageUrl': imageUrl,
+    // }).then((_) => print('Upload de animal'));
   }
 }
 

@@ -18,6 +18,8 @@ dependencies:
   google_fonts: ^3.0.1
   firebase_database: ^10.0.9
   firebase_storage: ^11.0.10
+  animated_splash_screen: ^1.3.0
+  lottie: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -28,5 +30,10 @@ dev_dependencies:
 flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
+  assets:
+    - asset/pet_and_friend.json
+    - asset/cute_dog.jpg
+    - asset/cat_and_dof2.jpg
+    - asset/dog_and_cat1.jpg
   # the material Icons class.
   uses-material-design: true

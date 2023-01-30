@@ -22,7 +22,7 @@ class ListaPassaros extends StatelessWidget {
         ),
         centerTitle: true,
         title: Text(
-          'Lista de Pássaros',
+          'Lista de Pets',
           style: GoogleFonts.acme(),
         ),
       ),

@@ -21,7 +21,7 @@ class CadastraPassaro extends StatelessWidget {
         ),
         centerTitle: true,
         title: Text(
-          'Cadastro de Pássaros',
+          'Cadastro de Pets',
           style: GoogleFonts.acme(),
         ),
       ),

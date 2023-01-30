@@ -4,6 +4,8 @@ import 'package:passaros_nordeste/screens/cadastro/cadastrar_passaro.dart';
 import 'package:passaros_nordeste/screens/lista_passaros/lista_passaros.dart';
 import 'package:passaros_nordeste/screens/main_menu/main_menu.dart';
 
+import 'screens/main_menu/splash.dart';
+
 class Rotas {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -20,6 +22,10 @@ class Rotas {
       case '/lista_passaros':
         return MaterialPageRoute(
           builder: (_) => const ListaPassaros(),
+        );
+      case '/splash':
+        return MaterialPageRoute(
+          builder: (_) => const SplashInitial(),
         );
 
       default:
