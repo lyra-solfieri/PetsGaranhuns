@@ -25,18 +25,16 @@ class MainMenu extends StatelessWidget {
                   height: 25,
                 ),
                 MainMenuCard(
-                  image:
-                      'https://i.pinimg.com/736x/e5/34/2e/e5342e75cf45db799ad90490c8f9a8dc.jpg',
-                  text: 'Acessar lista completa dos pássaros',
+                  image: 'asset/cat_and_dof2.jpg',
+                  text: 'Acessar lista completa dos Pets',
                   rota: '/lista_passaros',
                 ),
                 SizedBox(
                   height: 25,
                 ),
                 MainMenuCard(
-                  image:
-                      'https://s2.best-wallpaper.net/wallpaper/1920x1440/1801/Two-birds-flying-goldfinch-wings_1920x1440.jpg',
-                  text: 'Cadastrar um pássaro',
+                  image: 'asset/cute_dog.jpg',
+                  text: 'Cadastrar um Animal para adoção',
                   rota: '/cadastrar_passaro',
                 )
               ],

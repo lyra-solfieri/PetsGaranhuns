@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "666977126033",
+    "project_id": "passaros-ec49a",
+    "storage_bucket": "passaros-ec49a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666977126033:android:1291fb487d40956a846130",
+        "android_client_info": {
+          "package_name": "com.example.passaros_nordeste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666977126033-8mjk33b8fnoc6s170a4blk8qucdu8gum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgm73SHzhxDeIAuE00Z3_TKhem0IVqluM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666977126033-8mjk33b8fnoc6s170a4blk8qucdu8gum.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

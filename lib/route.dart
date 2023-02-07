@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:passaros_nordeste/constants.dart';
 import 'package:passaros_nordeste/screens/cadastro/cadastrar_passaro.dart';
-import 'package:passaros_nordeste/screens/lista_passaros/lista_passaros.dart';
+import 'package:passaros_nordeste/screens/lista_pets/lista_pets.dart';
 import 'package:passaros_nordeste/screens/main_menu/main_menu.dart';
 
 import 'screens/main_menu/splash.dart';
@@ -19,7 +19,7 @@ class Rotas {
           builder: (_) => const CadastraPassaro(),
         );
 
-      case '/lista_passaros':
+      case '/lista_pets':
         return MaterialPageRoute(
           builder: (_) => const ListaPassaros(),
         );

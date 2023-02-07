@@ -22,7 +22,7 @@ class MainMenuSearch extends StatelessWidget {
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.all(10),
           border: InputBorder.none,
-          hintText: "Procurar Pássaro",
+          hintText: "Procurar Animal",
           prefixIcon: const Icon(Icons.search),
           suffixIcon: IconButton(
             icon: const Icon(Icons.clear),

@@ -13,10 +13,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return const MaterialApp(
-      title: 'Pássaros Nordeste',
+      title: 'Pets Garanhuns',
       //theme: lightTheme,
       onGenerateRoute: Rotas.generateRoute,
-      initialRoute: initialRoute,
+      initialRoute: initialSplash,
       debugShowCheckedModeBanner: false,
     );
   }

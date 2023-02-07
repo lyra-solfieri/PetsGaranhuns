@@ -22,7 +22,7 @@ class MainMenuCard extends StatelessWidget {
       child: Card(
         child: Column(
           children: <Widget>[
-            Image.network(
+            Image.asset(
               image,
               fit: BoxFit.cover,
             ),

@@ -63,7 +63,7 @@ class _CadastroFormState extends State<CadastroForm> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> regions = ['Meio-Norte', 'Sertão', 'Agreste', 'Zona da Mata'];
+    List<String> regions = ['Garanhuns', 'Lajedo', 'São João'];
 
     const space = SizedBox(height: 15);
 
@@ -227,7 +227,7 @@ class _CadastroFormState extends State<CadastroForm> {
                   TextFormField(
                     controller: cidadePessoaController,
                     decoration: InputDecoration(
-                      labelText: 'Sua Cidade',
+                      labelText: 'Número para contato',
                       labelStyle: GoogleFonts.acme(
                         color: const Color.fromRGBO(165, 70, 2, 1),
                       ),
@@ -240,7 +240,7 @@ class _CadastroFormState extends State<CadastroForm> {
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Digite sua cidade";
+                        return "contato para doar";
                       }
                       return null;
                     },

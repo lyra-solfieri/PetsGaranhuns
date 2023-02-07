@@ -11,6 +11,7 @@ class MainMenuHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.only(bottom: paddingL),
       decoration: const BoxDecoration(
         gradient: LinearGradient(

@@ -33,5 +33,6 @@ const String passarosJsonPath = 'assets/data/passaros.json';
 const String markdownPath = 'assets/markdown/';
 
 // Routes
+const String initialSplash = '/splash';
 const String initialRoute = '/';
 const String categoryRoute = '/cadastro';
